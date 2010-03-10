@@ -1,4 +1,11 @@
 --- 
+upstream/opscode: 
+  squashed: true
+  url: git://github.com/opscode/cookbooks.git
+  branch: master
+  type: git
+  revision: 6576a13f28ad1c4485348cf321e0e39c2078d30f
+  remote: braid/upstream/opscode
 upstream/37signals: 
   squashed: true
   url: git://github.com/37signals/37s_cookbooks.git
