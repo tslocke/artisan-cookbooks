@@ -1,0 +1,8 @@
+--- 
+upstream/37signals: 
+  squashed: true
+  url: git://github.com/37signals/37s_cookbooks.git
+  branch: master
+  type: git
+  revision: d41e707446f9304c1d5361a92dd7aacb5dad1f65
+  remote: braid/upstream/37signals
