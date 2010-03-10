@@ -1,0 +1,1 @@
+# DUmmy Ruby recipe - we install Ruby Enterprise manually
