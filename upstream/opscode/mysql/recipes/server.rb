@@ -76,8 +76,8 @@ end
 #  end
 #end
 
-execute "mysql-install-privileges" do
-  command "/usr/bin/mysql -u root -p#{node[:mysql][:server_root_password]} < /etc/mysql/grants.sql"
-  action :nothing
-  subscribes :run, resources(:template => "/etc/mysql/grants.sql")
-end
+#execute "mysql-install-privileges" do
+#  command "/usr/bin/mysql -u root -p#{node[:mysql][:server_root_password]} < /etc/mysql/grants.sql"
+#  action :nothing
+#  subscribes :run, resources(:template => "/etc/mysql/grants.sql")
+#end
