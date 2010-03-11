@@ -62,18 +62,19 @@ template value_for_platform([ "centos", "redhat", "suse" ] => {"default" => "/et
   notifies :restart, resources(:service => "mysql"), :immediately
 end
 
-begin
-  t = resources(:template => "/etc/mysql/grants.sql")
-rescue
-  Chef::Log.warn("Could not find previously defined grants.sql resource")
-  t = template "/etc/mysql/grants.sql" do
-    source "grants.sql.erb"
-    owner "root"
-    group "root"
-    mode "0600"
-    action :create
-  end
-end
+# Tom. This just runs over and over. Lets try getting rid of it
+#begin
+#  t = resources(:template => "/etc/mysql/grants.sql")
+#rescue
+#  Chef::Log.warn("Could not find previously defined grants.sql resource")
+#  t = template "/etc/mysql/grants.sql" do
+#    source "grants.sql.erb"
+#    owner "root"
+#    group "root"
+#    mode "0600"
+#    action :create
+#  end
+#end
 
 execute "mysql-install-privileges" do
   command "/usr/bin/mysql -u root -p#{node[:mysql][:server_root_password]} < /etc/mysql/grants.sql"
