@@ -22,8 +22,8 @@
 set_unless[:mysql][:server_debian_password] = secure_password
 # This only works with client-server chef. With chef-solo the password gets lost
 #     set_unless[:mysql][:server_root_password] = secure_password
-# So instead we give an error if the password has not been set in the node json
-node[:mysql][:server_root_password] or raise "Define the mysql root password in your node json file (mysql.server_root_password)"
+# So instead we set a dummy password, and flag an error in mysql::server if it has not been changed
+node[:mysql][:server_root_password]       = "NO-PASSWORD!" 
 set_unless[:mysql][:server_repl_password] = secure_password
 set_unless[:mysql][:bind_address]         = ipaddress
 set_unless[:mysql][:datadir]              = "/var/lib/mysql"

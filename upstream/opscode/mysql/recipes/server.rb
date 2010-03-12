@@ -17,6 +17,9 @@
 # limitations under the License.
 #
 
+node[:mysql][:server_root_password] == "NO-PASSWORD!" and
+  raise 'Define the mysql root password in your node json file --  "mysql": { "server_root_password": "......" )'
+
 include_recipe "mysql::client"
 
 case node[:platform]
